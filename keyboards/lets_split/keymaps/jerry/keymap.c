@@ -28,7 +28,7 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  DMONEY,
+  //DMONEY,
   WORK,
   PORTAL,
   ISABLO,
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT_ortho_4x12( \
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-  DMONEY, KC_MINUS,KC_EQUAL,KC_GRAVE,KC_BSLS, KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, _______, _______, _______, \
+  _______, KC_MINUS,KC_EQUAL,KC_GRAVE,KC_BSLS, KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, _______, _______, _______, \
   _______,   WORK,     ISABLO, _______, _______, RGB_TOG, KC_BSPC, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY \
 ),
 
@@ -143,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] =  LAYOUT_ortho_4x12( \
   _______, RESET,   AG_NORM, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL, \
-  DMONEY, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  GAMING, DVORAK,  _______, _______, \
+  _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  GAMING, DVORAK,  _______, _______, \
   RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW, RGB_M_SN, RGB_M_K, RGB_M_X, RGB_M_G, _______, _______, _______, _______, \
   RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, _______, RGB_TOG, RGB_TOG, _______, RGB_SAI, RGB_VAD, RGB_VAI, _______ \
 ),
@@ -240,12 +240,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  }
 	  return false;
 	  break;
-	case DMONEY:
-	  if (record->event.pressed) {
-		  SEND_STRING("Finally a text book that starts with 2-State Systems! I have been teaching quantum mechanics off and on for 25 years to gifted high school students. I have experience using many other quantum texts. In John Townsend's latest edition, we finally have an excellent modern textbook that makes the mathematical and physical learning curve as gentle as possible WITHOUT CUTTING CORNERS ON THE PHYSICS. Prof. Townsend's treatment (developed over a sequence of refinements in his approach in previous texts = battle tested) enables students to engage the fundamentals of quantum mechanics and many of its emerging applications that rely on understanding few-state and composite systems. The approach is preferable to more traditional approaches because it climbs the mathematical hill starting from the gentlest point, avoiding mathematical issues and levels of abstraction that arise from infinite dimensionality in quantum systems until after basic physical principles have been introduced. The early use of Dirac notation and the clear separation of state space and matrix representations add considerable clarity for the beginning student. Townsend's approach moves students as quickly as possible to the point that they can honestly engage the fundamentals of forefront applications in quantum information , quantum computing, quantum teleportation, and other fundamental developing applications. Unlike some older texts, Townsend engages the 'spookiest' parts of quantum mechanics ( EPR, BELL Inequalities, GHZ states...) early. For this alone, he deserves extra credit! It is terribly important that physics students develop an understanding and intuition for quantum mechanics as early in life as possible and they can only do this by engaging the conceptually challenging aspects head-on but in the technically simplest context. Prof Townsend has found the sweet spot. This is THE best existing gateway text I have seen for serious physics students.");
-	  }
-	  return false;
-	  break;
+//	case DMONEY:
+//	  if (record->event.pressed) {
+//		  SEND_STRING("Finally a text book that starts with 2-State Systems! I have been teaching quantum mechanics off and on for 25 years to gifted high school students. I have experience using many other quantum texts. In John Townsend's latest edition, we finally have an excellent modern textbook that makes the mathematical and physical learning curve as gentle as possible WITHOUT CUTTING CORNERS ON THE PHYSICS. Prof. Townsend's treatment (developed over a sequence of refinements in his approach in previous texts = battle tested) enables students to engage the fundamentals of quantum mechanics and many of its emerging applications that rely on understanding few-state and composite systems. The approach is preferable to more traditional approaches because it climbs the mathematical hill starting from the gentlest point, avoiding mathematical issues and levels of abstraction that arise from infinite dimensionality in quantum systems until after basic physical principles have been introduced. The early use of Dirac notation and the clear separation of state space and matrix representations add considerable clarity for the beginning student. Townsend's approach moves students as quickly as possible to the point that they can honestly engage the fundamentals of forefront applications in quantum information , quantum computing, quantum teleportation, and other fundamental developing applications. Unlike some older texts, Townsend engages the 'spookiest' parts of quantum mechanics ( EPR, BELL Inequalities, GHZ states...) early. For this alone, he deserves extra credit! It is terribly important that physics students develop an understanding and intuition for quantum mechanics as early in life as possible and they can only do this by engaging the conceptually challenging aspects head-on but in the technically simplest context. Prof Townsend has found the sweet spot. This is THE best existing gateway text I have seen for serious physics students.");
+//	  }
+//	  return false;
+//	  break;
 	case WORK:
 	  if (record->event.pressed) {
 		  SEND_STRING("\\( \\int_{k<\\Lambda} [Dg][DA][D\\psi ][D\\Phi ] \\exp\\left\\{i \\int d^4x \\sqrt{-g} \\left[ \\frac{m_p^2}{2}R-\\frac{1}{4} F_{\\mu \\nu}^a F^{a \\mu \\nu} + i\\bar{\\psi}^i \\gamma^{\\mu} D_{\\mu} \\psi^i + \\left( \\bar{\\psi}^i_L V_{ij} \\Phi \\psi_R^j + \\text{h.c.} \\right) - \\left| D_{\\mu} \\Phi \\right|^2 - V(\\Phi) + D_{\\mu} A^{\\mu} N(\\widetilde{K}) - A_{\\mu} F^{\\mu} \\right] \\right\\} \\)");
