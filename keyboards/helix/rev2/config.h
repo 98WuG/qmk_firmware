@@ -19,8 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef REV2_CONFIG_H
 #define REV2_CONFIG_H
 
-#include "../config.h"
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x3060
@@ -37,7 +35,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Use I2C or Serial */
 #define USE_I2C
 #define USE_SERIAL
-#define USE_SERIAL_PD2
 //#define USE_MATRIX_I2C
 
 /* Select hand configuration */
@@ -60,11 +57,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #if  HELIX_ROWS == 4
   #define MATRIX_ROWS 8
   #define MATRIX_ROW_PINS { D4, C6, D7, E6 }
-#elif HELIX_ROWS == 5
+#else
   #define MATRIX_ROWS 10
   #define MATRIX_ROW_PINS { D4, C6, D7, E6, B4 }
-#else
-  #error "expected HELIX_ROWS 4 or 5"
 #endif
 
 // wiring of each half
@@ -104,7 +99,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef RGBLED_BACK
   #if HELIX_ROWS == 4
     #define RGBLED_NUM 25
-  #elif HELIX_ROWS == 5
+  #else
     #define RGBLED_NUM 32
   #endif
 #else
@@ -115,10 +110,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   #if RGBLED_NUM <= 6
     #define RGBLIGHT_LIMIT_VAL 255
   #else
-    #if HELIX_ROWS == 5
-      #define RGBLIGHT_LIMIT_VAL 120
-    #else
+    #if HELIX_ROWS == 4
       #define RGBLIGHT_LIMIT_VAL 130
+    #else
+      #define RGBLIGHT_LIMIT_VAL 120
     #endif
   #endif
   #define RGBLIGHT_VAL_STEP 17
@@ -126,10 +121,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   #if RGBLED_NUM <= 6
     #define RGBLIGHT_LIMIT_VAL 90
   #else
-    #if HELIX_ROWS == 5
-      #define RGBLIGHT_LIMIT_VAL 35
-    #else
+    #if HELIX_ROWS == 4
       #define RGBLIGHT_LIMIT_VAL 45
+    #else
+      #define RGBLIGHT_LIMIT_VAL 35
     #endif
   #endif
   #define RGBLIGHT_VAL_STEP 4
